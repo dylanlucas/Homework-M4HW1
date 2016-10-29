@@ -15,7 +15,6 @@ namespace M4HW1
         public Player(int health, int attackDamage, bool canAttack)
             : base(health, attackDamage, canAttack)
         {
-            attackDamage = 25;
             canAttack = true;
 
             rebelRep = rebel;

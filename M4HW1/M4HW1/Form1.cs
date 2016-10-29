@@ -40,6 +40,9 @@ namespace M4HW1
             npcHealthLabelDisplay.Text = npc.health.ToString();
             npcAttackDamageLabel.Text = npc.attackDamage.ToString();
             npcFactionLabelDisplay.Text = npc.getFaction();
+
+            displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
+            displayRichTextBox.ScrollToCaret();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -102,9 +105,10 @@ namespace M4HW1
 
             if (playerOne.health <= 0)
             {
-                displayRichTextBox.Text += "Player One has died. \n";
+                MessageBox.Show("Player One has died.");
                 attackDamageDisplayLabel.Text = "0";
                 playerOne.onDeath();
+                MessageBox.Show("The game is now over.");
                 this.Close();
             }
             else if (opponent.health <= 0)
@@ -148,7 +152,7 @@ namespace M4HW1
             if(attackButton.Enabled == false)
             {
                 // Restore values / create new objects
-                displayRichTextBox.Text += "Let's you heal you up after that intense battle.\n";
+                MessageBox.Show("Let's you heal you up after that intense battle.\n");
 
                 //Player One health
                 playerOne.health = 100;
@@ -168,9 +172,6 @@ namespace M4HW1
 
                 attackButton.Enabled = true;
             }
-
-            displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
-            displayRichTextBox.ScrollToCaret();
         }
     }
 }
