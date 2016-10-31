@@ -10,8 +10,7 @@ namespace M4HW1
 
     class NPC : MobileObject
     {
-        public NPC(int health, int attackDamage, bool canAttack)
-            : base(health, attackDamage, canAttack)
+        public NPC()
         {
             canAttack = false;
         }

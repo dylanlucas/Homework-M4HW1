@@ -12,23 +12,15 @@ namespace M4HW1
         private int _AttackDamage;
         private bool _CanAttack = false;
 
-        public MobileObject(int health, int attackDamage, bool canAttack)
-        {
-            _HealthPoints = health;
-            _AttackDamage = attackDamage;
-            _CanAttack = canAttack;
-
-        }
-
         public int health { get { return _HealthPoints; } set { _HealthPoints = value; } }
         public int attackDamage { get { return _AttackDamage; } set { _AttackDamage = value; } }
         public bool canAttack { get { return _CanAttack; } set { _CanAttack = value; } }
 
         public void onSpawn()
         {
-            _HealthPoints = health;
-            _AttackDamage = attackDamage;
-            _CanAttack = canAttack;
+            health = 100;
+            attackDamage = 20;
+            canAttack = true;
         }
 
         public void onDeath()
@@ -37,5 +29,17 @@ namespace M4HW1
             attackDamage = 0;
             canAttack = false;
         }
+
+        //public int onCombatStart()
+        //{
+        //    Random rand = new Random();
+
+        //    int result;
+
+        //    result = rand.Next(attackDamage) + 1;
+        //    attackDamage = result;
+        //    return result;
+
+        //}
     }
 }

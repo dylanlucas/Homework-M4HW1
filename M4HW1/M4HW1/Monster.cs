@@ -8,9 +8,10 @@ namespace M4HW1
 {
     class Monster : MobileObject
     {
-        public Monster(int health, int attackDamage, bool canAttack)
-            : base(health, attackDamage, canAttack)
+        public Monster()
         {
+            health = 100;
+            attackDamage = 20;
             canAttack = true;
         }
 

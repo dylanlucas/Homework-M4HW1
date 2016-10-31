@@ -12,9 +12,10 @@ namespace M4HW1
         int empireRep = 0;
         int unaffilliatedRep = 0;
 
-        public Player(int health, int attackDamage, bool canAttack)
-            : base(health, attackDamage, canAttack)
+        public Player()
         {
+            health = 100;
+            attackDamage = 25;
             canAttack = true;
 
             rebelRep = rebel;

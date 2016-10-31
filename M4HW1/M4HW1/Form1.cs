@@ -13,13 +13,13 @@ namespace M4HW1
     public partial class Form1 : Form
     {
         //Create Player Object
-        Player playerOne = new M4HW1.Player(100, 25, true);
+        Player playerOne = new M4HW1.Player();
 
         //Create an Opponent Object
-        Monster opponent = new Monster(100, 20, true);
+        Monster opponent = new Monster();
 
         //Create NPC object
-        NPC npc = new M4HW1.NPC(100, 0, false);
+        NPC npc = new NPC();
 
         int playerResult, opponentResult;
 
@@ -40,9 +40,6 @@ namespace M4HW1
             npcHealthLabelDisplay.Text = npc.health.ToString();
             npcAttackDamageLabel.Text = npc.attackDamage.ToString();
             npcFactionLabelDisplay.Text = npc.getFaction();
-
-            displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
-            displayRichTextBox.ScrollToCaret();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -161,9 +158,7 @@ namespace M4HW1
                 MessageBox.Show ("A NEW OPPONENT HAS APPROACHED YOU!");
 
                 //Create an Opponent Object
-                opponent.health = 100;
-                opponent.attackDamage = 20;
-                opponent.getFaction();
+                opponent.onSpawn();
 
                 //Display Opponent Stats
                 opponentHealthLabelDisplay.Text = opponent.health.ToString();
@@ -171,6 +166,9 @@ namespace M4HW1
                 opponentFactionDisplayLabel.Text = opponent.getFaction();
 
                 attackButton.Enabled = true;
+
+                displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
+                displayRichTextBox.ScrollToCaret();
             }
         }
     }
