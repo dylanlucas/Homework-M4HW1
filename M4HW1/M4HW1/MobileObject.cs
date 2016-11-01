@@ -19,7 +19,7 @@ namespace M4HW1
         public void onSpawn()
         {
             health = 100;
-            attackDamage = 20;
+            attackDamage = _AttackDamage;
             canAttack = true;
         }
 

@@ -27,6 +27,8 @@ namespace M4HW1
         {
             InitializeComponent();
 
+            displayRichTextBox.BackColor = Color.White;
+
             //Display Player Stats
             healthDisplayLabel.Text = playerOne.health.ToString();
             attackDamageDisplayLabel.Text = playerOne.attackDamage.ToString();
@@ -106,12 +108,12 @@ namespace M4HW1
                 attackDamageDisplayLabel.Text = "0";
                 playerOne.onDeath();
                 MessageBox.Show("The game is now over.");
-                this.Close();
+                attackButton.Visible = false;
+                MessageBox.Show("Please close the game.");
             }
-            else if (opponent.health <= 0)
-            {
-                bool factionPoints = false;
 
+            if (opponent.health <= 0)
+            {
                 attackButton.Enabled = false;
 
                 opponentAttackDamageLabel.Text = "";
@@ -119,34 +121,9 @@ namespace M4HW1
                 opponent.onDeath();
 
                 displayRichTextBox.Text += "Opponent has died. \n";
-                if (factionPoints == false)
-                {
-                    if (opponent.getFaction() == "REBEL")
-                    {
-                        factionPoints = true;
-                        playerOne.rebel -= 100;
-                        playerOne.empire += 100;
-                        displayRichTextBox.Text += playerOne.factionRep() + "\n";
-                    }
-                    else if (opponent.getFaction() == "EMPIRE")
-                    {
-                        factionPoints = false;
-                        playerOne.empire -= 100;
-                        playerOne.rebel += 100;
-                        displayRichTextBox.Text += playerOne.factionRep() + "\n";
-                    }
-                    else
-                    {
-                        factionPoints = false;
-                        playerOne.unaff -= 100;
-                        playerOne.empire += 50;
-                        playerOne.rebel -= 50;
-                        displayRichTextBox.Text += playerOne.factionRep() + "\n";
-                    }
-                }
             }
 
-            if(attackButton.Enabled == false)
+            if (attackButton.Enabled == false)
             {
                 // Restore values / create new objects
                 MessageBox.Show("Let's you heal you up after that intense battle.\n");
@@ -154,6 +131,28 @@ namespace M4HW1
                 //Player One health
                 playerOne.health = 100;
                 healthDisplayLabel.Text = playerOne.health.ToString();
+
+                if (opponentFactionDisplayLabel.Text == Faction.REBEL.ToString())
+                {
+                    playerOne.rebel -= 100;
+                    playerOne.empire += 100;
+                    playerOne.unaff += 50;
+                    displayRichTextBox.Text += playerOne.factionRep() + "\n";
+                }
+                else if (opponentFactionDisplayLabel.Text == Faction.EMPIRE.ToString())
+                {
+                    playerOne.empire -= 100;
+                    playerOne.rebel += 100;
+                    playerOne.unaff += 50;
+                    displayRichTextBox.Text += playerOne.factionRep() + "\n";
+                }
+                if (opponentFactionDisplayLabel.Text == Faction.UNAFFILIATED.ToString())
+                {
+                    playerOne.unaff -= 100;
+                    playerOne.empire += 50;
+                    playerOne.rebel -= 50;
+                    displayRichTextBox.Text += playerOne.factionRep() + "\n";
+                }
 
                 MessageBox.Show ("A NEW OPPONENT HAS APPROACHED YOU!");
 
@@ -166,6 +165,28 @@ namespace M4HW1
                 opponentFactionDisplayLabel.Text = opponent.getFaction();
 
                 attackButton.Enabled = true;
+            }
+
+            if (playerOne.rebel == 500)
+            {
+                if(opponentFactionDisplayLabel.Text == Faction.REBEL.ToString())
+                {
+                    opponent.attackDamage = 50;
+                }
+            }
+            else if (playerOne.empire == 500)
+            {
+                if (opponentFactionDisplayLabel.Text == Faction.EMPIRE.ToString())
+                {
+                    opponent.attackDamage = 50;
+                }
+            }
+            if (playerOne.unaff == 500)
+            {
+                if (opponentFactionDisplayLabel.Text == Faction.UNAFFILIATED.ToString())
+                {
+                    opponent.attackDamage = 50;
+                }
             }
 
             displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;

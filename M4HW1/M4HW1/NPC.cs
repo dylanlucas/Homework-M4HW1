@@ -12,6 +12,8 @@ namespace M4HW1
     {
         public NPC()
         {
+            health = 100;
+            attackDamage = 0;
             canAttack = false;
         }
 

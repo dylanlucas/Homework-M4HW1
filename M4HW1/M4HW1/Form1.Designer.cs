@@ -227,6 +227,7 @@
             // 
             this.displayRichTextBox.Location = new System.Drawing.Point(460, 280);
             this.displayRichTextBox.Name = "displayRichTextBox";
+            this.displayRichTextBox.ReadOnly = true;
             this.displayRichTextBox.Size = new System.Drawing.Size(290, 227);
             this.displayRichTextBox.TabIndex = 22;
             this.displayRichTextBox.Text = "";
