@@ -35,17 +35,5 @@ namespace M4HW1
 
             return output;
         }
-
-        public int playerCombatStart()
-        {
-            Random rand = new Random();
-
-            int result;
-
-            result = rand.Next(25) + 1;
-            attackDamage = result;
-            return result;
-
-        }
     }
 }

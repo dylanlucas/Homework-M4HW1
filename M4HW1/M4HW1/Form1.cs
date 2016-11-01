@@ -60,8 +60,8 @@ namespace M4HW1
         private void button1_Click_1(object sender, EventArgs e)
         {
             
-            playerResult = playerOne.playerCombatStart();
-            opponentResult = opponent.mobCombatStart();
+            playerResult = playerOne.onCombatStart();
+            opponentResult = opponent.onCombatStart();
 
             if (playerOne.health > 0)
             {
@@ -166,10 +166,10 @@ namespace M4HW1
                 opponentFactionDisplayLabel.Text = opponent.getFaction();
 
                 attackButton.Enabled = true;
-
-                displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
-                displayRichTextBox.ScrollToCaret();
             }
+
+            displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
+            displayRichTextBox.ScrollToCaret();
         }
     }
 }

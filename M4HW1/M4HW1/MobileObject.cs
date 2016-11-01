@@ -30,16 +30,15 @@ namespace M4HW1
             canAttack = false;
         }
 
-        //public int onCombatStart()
-        //{
-        //    Random rand = new Random();
+        public int onCombatStart()
+        {
+            Random rand = new Random();
 
-        //    int result;
+            int result;
 
-        //    result = rand.Next(attackDamage) + 1;
-        //    attackDamage = result;
-        //    return result;
+            result = rand.Next(_AttackDamage) + 1;
+            return result;
 
-        //}
+        }
     }
 }

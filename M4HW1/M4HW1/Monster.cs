@@ -37,17 +37,5 @@ namespace M4HW1
 
             return npcFaction.ToString();
         }
-
-        public int mobCombatStart()
-        {
-            Random rand = new Random();
-
-            int result;
-
-            result = rand.Next(20) + 1;
-            attackDamage = result;
-            return result;
-
-        }
     }
 }
