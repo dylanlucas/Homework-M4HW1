@@ -21,18 +21,18 @@ namespace M4HW1
         //Create NPC object
         NPC npc = new NPC();
 
-        int playerResult, opponentResult;
+        int playerResult, opponentResult, npcResult;
 
         public Form1()
         {
             InitializeComponent();
 
             //Initialize the back color of the display rich text box
-            displayRichTextBox.BackColor = Color.White;
+            displayRTB.BackColor = Color.White;
 
             //Initialize the back color and other things of the faction reputation rich text box
-            factionDisplayRTB.BackColor = Color.White;
-            factionDisplayRTB.Text = playerOne.factionRep() + "\n";
+            playerStatusRTB.BackColor = Color.White;
+            playerStatusRTB.Text = playerOne.factionRep() + "\n" + playerOne.goldAmt() + "\n";
 
 
             //Display Player Stats
@@ -40,14 +40,14 @@ namespace M4HW1
             attackDamageDisplayLabel.Text = playerOne.attackDamage.ToString();
 
             //Display Opponent Stats
-            opponentHealthLabelDisplay.Text = opponent.health.ToString();
-            opponentAttackDamageLabel.Text = opponent.attackDamage.ToString();
-            opponentFactionDisplayLabel.Text = opponent.getFaction();
+            oppHealthLabel.Text = opponent.health.ToString();
+            oppADLabel.Text = opponent.attackDamage.ToString();
+            oppFDLabel.Text = opponent.getMOBFaction();
 
             //Display NPC Stats
-            npcHealthLabelDisplay.Text = npc.health.ToString();
-            npcAttackDamageLabel.Text = npc.attackDamage.ToString();
-            npcFactionLabelDisplay.Text = npc.getFaction();
+            npcHealthDisplay.Text = npc.health.ToString();
+            npcADLabel.Text = npc.attackDamage.ToString();
+            npcFDDisplay.Text = npc.getNPCFaction();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -71,149 +71,130 @@ namespace M4HW1
             playerResult = playerOne.onCombatStart();
             opponentResult = opponent.onCombatStart();
 
-            if (playerOne.health > 0)
-            {
-                displayRichTextBox.Text += "Player One attacked for " + playerResult.ToString() + "\n" +
-                                           "Opponent attacked for " + opponentResult.ToString() + "\n";
 
-                if (playerOne.health <= 0)
-                {
-                    healthDisplayLabel.Text = "0";
-                    attackButton.Enabled = false;
-                }
-                else if (playerOne.health > 0)
-                {
-                    playerOne.health = playerOne.health - opponentResult;
-                    healthDisplayLabel.Text = playerOne.health.ToString();
-                }
-
-                if (opponent.health <= 0)
-                {
-                    opponentHealthLabelDisplay.Text = "0";
-                    attackButton.Enabled = false;
-                }
-                else if (opponent.health > 0)
-                {
-                    opponent.health = opponent.health - playerResult;
-                    opponentHealthLabelDisplay.Text = opponent.health.ToString();
-                }
-            }
-
-            if (playerOne.health < 0)
+            if (playerOne.health > 0 && playerOne.health <= 100)
             {
-                healthDisplayLabel.Text = "0";
-            }
-            else if (opponent.health < 0)
-            {
-                opponentHealthLabelDisplay.Text = "0";
+                displayRTB.Text += "Player One attacked Opponent for " + playerResult.ToString() + "\n";
+                playerOne.health = playerOne.health - opponentResult;
+                healthDisplayLabel.Text = playerOne.health.ToString();
             }
 
             if (playerOne.health <= 0)
             {
-                MessageBox.Show("Player One has died.");
+                healthDisplayLabel.Text = "0";
+                displayRTB.Text += "Player One had died.\n";
                 attackDamageDisplayLabel.Text = "0";
                 playerOne.onDeath();
-                MessageBox.Show("The game is now over.");
+                displayRTB.Text += "The game is now over.\n";
                 attackButton.Visible = false;
-                MessageBox.Show("Please close the game.");
+                displayRTB.Text += "Please close the game.\n";
+            }
+
+            if (opponent.health > 0 && opponent.health <= 100)
+            {
+                displayRTB.Text += "Opponent attacked Player One for " + opponentResult.ToString() + "\n";
+                opponent.health = opponent.health - playerResult;
+                oppHealthLabel.Text = opponent.health.ToString();
             }
 
             if (opponent.health <= 0)
             {
+                oppHealthLabel.Text = "0";
+
                 attackButton.Enabled = false;
 
-                if (opponentFactionDisplayLabel.Text == Faction.REBEL.ToString())
+                if (oppFDLabel.Text == Faction.REBEL.ToString())
                 {
                     playerOne.rebel -= 100;
                     playerOne.empire += 100;
                     playerOne.unaff += 50;
-                    factionDisplayRTB.Text = playerOne.factionRep() + "\n";
+                    playerStatusRTB.Text = playerOne.factionRep() + "\n";
 
-                    if (playerOne.rebel >= 500)
+                    if (playerOne.rebel <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.empire >= 500)
+                    else if (playerOne.empire <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.unaff >= 500)
+                    else if (playerOne.unaff <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
                 }
-                else if (opponentFactionDisplayLabel.Text == Faction.EMPIRE.ToString())
+                else if (oppFDLabel.Text == Faction.EMPIRE.ToString())
                 {
                     playerOne.empire -= 100;
                     playerOne.rebel += 100;
                     playerOne.unaff += 50;
-                    factionDisplayRTB.Text = playerOne.factionRep() + "\n";
+                    playerStatusRTB.Text = playerOne.factionRep() + "\n";
 
-                    if (playerOne.rebel >= 500)
+                    if (playerOne.rebel <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.empire >= 500)
+                    else if (playerOne.empire <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.unaff >= 500)
+                    else if (playerOne.unaff <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
                 }
-                else if (opponentFactionDisplayLabel.Text == Faction.UNAFFILIATED.ToString())
+                else if (oppFDLabel.Text == Faction.UNAFFILIATED.ToString())
                 {
                     playerOne.unaff -= 100;
                     playerOne.empire += 50;
                     playerOne.rebel -= 50;
-                    factionDisplayRTB.Text = playerOne.factionRep() + "\n";
+                    playerStatusRTB.Text = playerOne.factionRep() + "\n";
 
-                    if (playerOne.rebel >= 500)
+                    if (playerOne.rebel <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.empire >= 500)
+                    else if (playerOne.empire <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
-                    else if (playerOne.unaff >= 500)
+                    else if (playerOne.unaff <= -500)
                     {
                         opponent.attackDamage = 50;
                     }
                 }
 
-                opponentAttackDamageLabel.Text = "";
-                opponentFactionDisplayLabel.Text = "";
+                oppADLabel.Text = "";
+                oppFDLabel.Text = "";
                 opponent.onDeath();
 
-                displayRichTextBox.Text += "Opponent has died. \n";
+                displayRTB.Text += "Opponent has died. \n";
             }
 
             if (attackButton.Enabled == false)
             {
                 // Restore values / create new objects
-                MessageBox.Show("Let's you heal you up after that intense battle.\n");
+                displayRTB.Text += "Let's you heal you up after that intense battle.\n";
 
                 //Player One health
                 playerOne.health = 100;
                 healthDisplayLabel.Text = playerOne.health.ToString();
 
-                MessageBox.Show ("A NEW OPPONENT HAS APPROACHED YOU!");
+                displayRTB.Text += "A NEW OPPONENT HAS APPROACHED YOU!\n";
 
                 //Create an Opponent Object
                 opponent.onSpawn();
 
                 //Display Opponent Stats
-                opponentHealthLabelDisplay.Text = opponent.health.ToString();
-                opponentAttackDamageLabel.Text = opponent.attackDamage.ToString();
-                opponentFactionDisplayLabel.Text = opponent.getFaction();
+                oppHealthLabel.Text = opponent.health.ToString();
+                oppADLabel.Text = opponent.attackDamage.ToString();
+                oppFDLabel.Text = opponent.getMOBFaction();
 
                 attackButton.Enabled = true;
             }
 
-            displayRichTextBox.SelectionStart = displayRichTextBox.Text.Length;
-            displayRichTextBox.ScrollToCaret();
+            displayRTB.SelectionStart = displayRTB.Text.Length;
+            displayRTB.ScrollToCaret();
         }
     }
 }

@@ -49,6 +49,7 @@
             this.healthDisplayLabel = new System.Windows.Forms.Label();
             this.opponentHealthLabelDisplay = new System.Windows.Forms.Label();
             this.npcHealthLabelDisplay = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -262,11 +263,19 @@
             this.npcHealthLabelDisplay.TabIndex = 25;
             this.npcHealthLabelDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(334, 93);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(130, 30);
+            this.progressBar1.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 528);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.npcHealthLabelDisplay);
             this.Controls.Add(this.opponentHealthLabelDisplay);
             this.Controls.Add(this.healthDisplayLabel);
@@ -319,6 +328,7 @@
         private System.Windows.Forms.Label healthDisplayLabel;
         private System.Windows.Forms.Label opponentHealthLabelDisplay;
         private System.Windows.Forms.Label npcHealthLabelDisplay;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

@@ -36,20 +36,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.opponentFactionDisplayLabel = new System.Windows.Forms.Label();
-            this.opponentAttackDamageLabel = new System.Windows.Forms.Label();
+            this.oppFDLabel = new System.Windows.Forms.Label();
+            this.oppADLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.npcAttackDamageLabel = new System.Windows.Forms.Label();
+            this.npcADLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.npcFactionLabelDisplay = new System.Windows.Forms.Label();
+            this.npcFDDisplay = new System.Windows.Forms.Label();
             this.attackButton = new System.Windows.Forms.Button();
-            this.displayRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.displayRTB = new System.Windows.Forms.RichTextBox();
             this.healthDisplayLabel = new System.Windows.Forms.Label();
-            this.opponentHealthLabelDisplay = new System.Windows.Forms.Label();
-            this.npcHealthLabelDisplay = new System.Windows.Forms.Label();
-            this.factionDisplayRTB = new System.Windows.Forms.RichTextBox();
+            this.oppHealthLabel = new System.Windows.Forms.Label();
+            this.npcHealthDisplay = new System.Windows.Forms.Label();
+            this.playerStatusRTB = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -134,25 +134,25 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Faction :";
             // 
-            // opponentFactionDisplayLabel
+            // oppFDLabel
             // 
-            this.opponentFactionDisplayLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.opponentFactionDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opponentFactionDisplayLabel.Location = new System.Drawing.Point(762, 136);
-            this.opponentFactionDisplayLabel.Name = "opponentFactionDisplayLabel";
-            this.opponentFactionDisplayLabel.Size = new System.Drawing.Size(133, 30);
-            this.opponentFactionDisplayLabel.TabIndex = 11;
-            this.opponentFactionDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.oppFDLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.oppFDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oppFDLabel.Location = new System.Drawing.Point(730, 136);
+            this.oppFDLabel.Name = "oppFDLabel";
+            this.oppFDLabel.Size = new System.Drawing.Size(165, 30);
+            this.oppFDLabel.TabIndex = 11;
+            this.oppFDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // opponentAttackDamageLabel
+            // oppADLabel
             // 
-            this.opponentAttackDamageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.opponentAttackDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opponentAttackDamageLabel.Location = new System.Drawing.Point(762, 93);
-            this.opponentAttackDamageLabel.Name = "opponentAttackDamageLabel";
-            this.opponentAttackDamageLabel.Size = new System.Drawing.Size(133, 30);
-            this.opponentAttackDamageLabel.TabIndex = 12;
-            this.opponentAttackDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.oppADLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.oppADLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oppADLabel.Location = new System.Drawing.Point(730, 93);
+            this.oppADLabel.Name = "oppADLabel";
+            this.oppADLabel.Size = new System.Drawing.Size(165, 30);
+            this.oppADLabel.TabIndex = 12;
+            this.oppADLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -184,15 +184,15 @@
             this.label11.TabIndex = 17;
             this.label11.Text = "Attack Damage :";
             // 
-            // npcAttackDamageLabel
+            // npcADLabel
             // 
-            this.npcAttackDamageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.npcAttackDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.npcAttackDamageLabel.Location = new System.Drawing.Point(138, 415);
-            this.npcAttackDamageLabel.Name = "npcAttackDamageLabel";
-            this.npcAttackDamageLabel.Size = new System.Drawing.Size(181, 30);
-            this.npcAttackDamageLabel.TabIndex = 18;
-            this.npcAttackDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.npcADLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.npcADLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.npcADLabel.Location = new System.Drawing.Point(138, 415);
+            this.npcADLabel.Name = "npcADLabel";
+            this.npcADLabel.Size = new System.Drawing.Size(165, 30);
+            this.npcADLabel.TabIndex = 18;
+            this.npcADLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
             // 
@@ -204,20 +204,20 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Faction : ";
             // 
-            // npcFactionLabelDisplay
+            // npcFDDisplay
             // 
-            this.npcFactionLabelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.npcFactionLabelDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.npcFactionLabelDisplay.Location = new System.Drawing.Point(138, 475);
-            this.npcFactionLabelDisplay.Name = "npcFactionLabelDisplay";
-            this.npcFactionLabelDisplay.Size = new System.Drawing.Size(181, 30);
-            this.npcFactionLabelDisplay.TabIndex = 20;
-            this.npcFactionLabelDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.npcFDDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.npcFDDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.npcFDDisplay.Location = new System.Drawing.Point(138, 475);
+            this.npcFDDisplay.Name = "npcFDDisplay";
+            this.npcFDDisplay.Size = new System.Drawing.Size(165, 30);
+            this.npcFDDisplay.TabIndex = 20;
+            this.npcFDDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // attackButton
             // 
             this.attackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attackButton.Location = new System.Drawing.Point(703, 317);
+            this.attackButton.Location = new System.Drawing.Point(396, 259);
             this.attackButton.Name = "attackButton";
             this.attackButton.Size = new System.Drawing.Size(103, 41);
             this.attackButton.TabIndex = 21;
@@ -225,14 +225,14 @@
             this.attackButton.UseVisualStyleBackColor = true;
             this.attackButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // displayRichTextBox
+            // displayRTB
             // 
-            this.displayRichTextBox.Location = new System.Drawing.Point(605, 397);
-            this.displayRichTextBox.Name = "displayRichTextBox";
-            this.displayRichTextBox.ReadOnly = true;
-            this.displayRichTextBox.Size = new System.Drawing.Size(290, 227);
-            this.displayRichTextBox.TabIndex = 22;
-            this.displayRichTextBox.Text = "";
+            this.displayRTB.Location = new System.Drawing.Point(605, 328);
+            this.displayRTB.Name = "displayRTB";
+            this.displayRTB.ReadOnly = true;
+            this.displayRTB.Size = new System.Drawing.Size(290, 227);
+            this.displayRTB.TabIndex = 22;
+            this.displayRTB.Text = "";
             // 
             // healthDisplayLabel
             // 
@@ -244,65 +244,65 @@
             this.healthDisplayLabel.TabIndex = 23;
             this.healthDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // opponentHealthLabelDisplay
+            // oppHealthLabel
             // 
-            this.opponentHealthLabelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.opponentHealthLabelDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opponentHealthLabelDisplay.Location = new System.Drawing.Point(765, 50);
-            this.opponentHealthLabelDisplay.Name = "opponentHealthLabelDisplay";
-            this.opponentHealthLabelDisplay.Size = new System.Drawing.Size(130, 30);
-            this.opponentHealthLabelDisplay.TabIndex = 24;
-            this.opponentHealthLabelDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.oppHealthLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.oppHealthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oppHealthLabel.Location = new System.Drawing.Point(730, 43);
+            this.oppHealthLabel.Name = "oppHealthLabel";
+            this.oppHealthLabel.Size = new System.Drawing.Size(165, 30);
+            this.oppHealthLabel.TabIndex = 24;
+            this.oppHealthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // npcHealthLabelDisplay
+            // npcHealthDisplay
             // 
-            this.npcHealthLabelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.npcHealthLabelDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.npcHealthLabelDisplay.Location = new System.Drawing.Point(138, 357);
-            this.npcHealthLabelDisplay.Name = "npcHealthLabelDisplay";
-            this.npcHealthLabelDisplay.Size = new System.Drawing.Size(181, 30);
-            this.npcHealthLabelDisplay.TabIndex = 25;
-            this.npcHealthLabelDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.npcHealthDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.npcHealthDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.npcHealthDisplay.Location = new System.Drawing.Point(138, 357);
+            this.npcHealthDisplay.Name = "npcHealthDisplay";
+            this.npcHealthDisplay.Size = new System.Drawing.Size(165, 30);
+            this.npcHealthDisplay.TabIndex = 25;
+            this.npcHealthDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // factionDisplayRTB
+            // playerStatusRTB
             // 
-            this.factionDisplayRTB.Location = new System.Drawing.Point(154, 143);
-            this.factionDisplayRTB.Name = "factionDisplayRTB";
-            this.factionDisplayRTB.ReadOnly = true;
-            this.factionDisplayRTB.Size = new System.Drawing.Size(165, 69);
-            this.factionDisplayRTB.TabIndex = 26;
-            this.factionDisplayRTB.Text = "";
+            this.playerStatusRTB.Location = new System.Drawing.Point(154, 143);
+            this.playerStatusRTB.Name = "playerStatusRTB";
+            this.playerStatusRTB.ReadOnly = true;
+            this.playerStatusRTB.Size = new System.Drawing.Size(165, 81);
+            this.playerStatusRTB.TabIndex = 26;
+            this.playerStatusRTB.Text = "";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 183);
+            this.label4.Location = new System.Drawing.Point(12, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 16);
+            this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Faction Reputation :";
+            this.label4.Text = "Player Status :";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 636);
+            this.ClientSize = new System.Drawing.Size(907, 572);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.factionDisplayRTB);
-            this.Controls.Add(this.npcHealthLabelDisplay);
-            this.Controls.Add(this.opponentHealthLabelDisplay);
+            this.Controls.Add(this.playerStatusRTB);
+            this.Controls.Add(this.npcHealthDisplay);
+            this.Controls.Add(this.oppHealthLabel);
             this.Controls.Add(this.healthDisplayLabel);
-            this.Controls.Add(this.displayRichTextBox);
+            this.Controls.Add(this.displayRTB);
             this.Controls.Add(this.attackButton);
-            this.Controls.Add(this.npcFactionLabelDisplay);
+            this.Controls.Add(this.npcFDDisplay);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.npcAttackDamageLabel);
+            this.Controls.Add(this.npcADLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.opponentAttackDamageLabel);
-            this.Controls.Add(this.opponentFactionDisplayLabel);
+            this.Controls.Add(this.oppADLabel);
+            this.Controls.Add(this.oppFDLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -329,20 +329,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label opponentFactionDisplayLabel;
-        private System.Windows.Forms.Label opponentAttackDamageLabel;
+        private System.Windows.Forms.Label oppFDLabel;
+        private System.Windows.Forms.Label oppADLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label npcAttackDamageLabel;
+        private System.Windows.Forms.Label npcADLabel;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label npcFactionLabelDisplay;
+        private System.Windows.Forms.Label npcFDDisplay;
         private System.Windows.Forms.Button attackButton;
-        private System.Windows.Forms.RichTextBox displayRichTextBox;
+        private System.Windows.Forms.RichTextBox displayRTB;
         private System.Windows.Forms.Label healthDisplayLabel;
-        private System.Windows.Forms.Label opponentHealthLabelDisplay;
-        private System.Windows.Forms.Label npcHealthLabelDisplay;
-        private System.Windows.Forms.RichTextBox factionDisplayRTB;
+        private System.Windows.Forms.Label oppHealthLabel;
+        private System.Windows.Forms.Label npcHealthDisplay;
+        private System.Windows.Forms.RichTextBox playerStatusRTB;
         private System.Windows.Forms.Label label4;
     }
 }

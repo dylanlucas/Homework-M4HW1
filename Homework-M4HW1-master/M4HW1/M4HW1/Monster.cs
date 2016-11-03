@@ -14,28 +14,5 @@ namespace M4HW1
             attackDamage = 20;
             canAttack = true;
         }
-
-        public string getFaction()
-        {
-            Random rand = new Random();
-            Faction npcFaction = new Faction();
-
-            int result;
-            result = rand.Next(3);
-            if (result == 1)
-            {
-                npcFaction = Faction.REBEL;
-            }
-            else if (result == 2)
-            {
-                npcFaction = Faction.EMPIRE;
-            }
-            else
-            {
-                npcFaction = Faction.UNAFFILIATED;
-            }
-
-            return npcFaction.ToString();
-        }
     }
 }
